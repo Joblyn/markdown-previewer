@@ -1,0 +1,33 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+.App-header {
+  padding-top: 20px;
+  text-align: center;
+  font-size: calc(30px + 2vmin);
+  color: white;
+}
+
+h5{
+  background-color:#282c34;
+  color:white;
+  border-bottom: 2px solid black;
+}
+
+.col{
+  border: 2px black solid;
+  color: black;
+}
+
+#preview, #editor {
+  padding-right: none!important;
+  padding-left: none!important;
+}
+#editor{
+  height:200px;
+}
+#preview{
+  height: 500px;
+}
