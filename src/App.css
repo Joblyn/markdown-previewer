@@ -1,33 +1,81 @@
 .App {
   background-color: #282c34;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-header {
-  padding-top: 20px;
+  padding-top: 15px;
   text-align: center;
-  font-size: calc(30px + 2vmin);
+  font-size: calc(35px + 2vmin);
   color: white;
+  font-weight: 600;
 }
-
-h5{
+@supports (-webkit-text-stroke: 1px black) {
+  .App-header {
+    /* -webkit-text-stroke: 1px white; */
+  }
+}
+@media (max-width: 991px) {
+  .App-header {
+    font-size: calc(30px + 2vmin)
+  }
+}
+.buttons{
+  margin: 10px 10px 0 10px;
+  padding: .6rem 1.6rem !important;
+  font-size: 1rem !important;
+}
+.show-on-mobile{
+  display: none !important;
+} 
+@media (max-width: 991px){
+  .show-on-mobile{
+    display: block;
+  } 
+}
+h4{
   background-color:#282c34;
   color:white;
   border-bottom: 2px solid black;
+  padding: 2px 10px;
+  font-weight: 400;
 }
-
-.col{
+.my-col{
   border: 2px black solid;
   color: black;
+  padding-right: 0!important;
+  padding-left: 0!important;
+  height: 600px;   
 }
-
-#preview, #editor {
-  padding-right: none!important;
-  padding-left: none!important;
+.row{
+  margin: 5px 0 !important;
+  padding: 0 2%;
+}
+.title{
+  height: 5%;
+  display: flex;
+  align-items: center;
 }
 #editor{
-  height:200px;
+  height:93%;
+  margin-top: 0!important;
+} 
+.scroll{
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-#preview{
-  height: 500px;
+.my-col {
+  position: relative;
 }
+#previewer-div .title{
+  position: absolute;
+}
+footer{
+  margin: 10vh 0 0 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+} 

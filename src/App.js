@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ReactMarkdown from "react-markdown";
+import { Button } from 'react-bootstrap';
+import Editor from './Components /Editor';
+import Previewer from './Components /Previewer';
 
 const initialState = `
   This is a paragraph
@@ -37,15 +39,28 @@ class App extends React.Component {
     this.state = {
       text: initialState
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.clickHandlerForPreviewer = this.clickHandlerForPreviewer.bind(this);
+    this.clickclickHandlerForEditor = this.clickclickHandlerForEditor.bind(this);  
   }
+
   handleChange = (e) => {
     this.setState({
       text: e.target.value
     })
   }
 
+  clickclickHandlerForEditor = () => {
+    
+  }
+
+  clickHandlerForPreviewer = () => {
+
+  }
+
+
   render() {
-    const { text } = this.state;
+    // const { text } = this.state;
     // const markdown = marked(text, { breaks:true });
 
     return (
@@ -53,16 +68,22 @@ class App extends React.Component {
         <header className="App-header">
           Markdown Previewer
         </header>
-        <div className="container-fluid display-flex justify-content-center">
-          <div className="col mt-4 editor-div">
-            <h5>Editor</h5>
-            <textarea value={text} onChange={this.handleChange} className="form-control" id="editor" />
-          </div>
-          <div className="col mt-4">
-            <h5>Previewer</h5>
-            <ReactMarkdown id="preview" className="rounded p-2" source={text} />
-          </div>
+
+        {/* Buttons on mobile */}
+        <div className="buttons-container d-flex justify-content-center show-on-mobile">
+          <Button className="buttons" onClick={this.clickHandlerForEditor}>Editor</Button>
+          <Button className="buttons" onClick={this.clickHandlerForPreviewer}>Preview</Button>
         </div>
+        {/* ...end... */}
+
+        <div className="row">
+          <Editor text={this.state.text} handleChange={this.handleChange}/>
+          <Previewer text={this.state.text}/>
+        </div>
+
+        <footer>
+          Dev'd by Joblyn 
+        </footer>
       </div>
     )
   }
