@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import Editor from './Components /Editor';
 import Previewer from './Components /Previewer';
+// import $ from "jquery";
 
 const initialState = `
   This is a paragraph
@@ -41,7 +42,7 @@ class App extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.clickHandlerForPreviewer = this.clickHandlerForPreviewer.bind(this);
-    this.clickclickHandlerForEditor = this.clickclickHandlerForEditor.bind(this);  
+    this.clickHandlerForEditor = this.clickHandlerForEditor.bind(this);  
   }
 
   handleChange = (e) => {
@@ -50,7 +51,7 @@ class App extends React.Component {
     })
   }
 
-  clickclickHandlerForEditor = () => {
+  clickHandlerForEditor = () => {
     
   }
 
@@ -60,9 +61,6 @@ class App extends React.Component {
 
 
   render() {
-    // const { text } = this.state;
-    // const markdown = marked(text, { breaks:true });
-
     return (
       <div className="App">
         <header className="App-header">
@@ -77,8 +75,8 @@ class App extends React.Component {
         {/* ...end... */}
 
         <div className="row">
-          <Editor text={this.state.text} handleChange={this.handleChange}/>
-          <Previewer text={this.state.text}/>
+          <Editor text={this.state.text} handleChange={this.handleChange} />
+          <Previewer text={this.state.text} />
         </div>
 
         <footer>
