@@ -38,11 +38,11 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      text: initialState
+      text: initialState,
+      previewOn: false 
     }
     this.handleChange = this.handleChange.bind(this);
-    this.clickHandlerForPreviewer = this.clickHandlerForPreviewer.bind(this);
-    this.clickHandlerForEditor = this.clickHandlerForEditor.bind(this);  
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   handleChange = (e) => {
@@ -51,12 +51,10 @@ class App extends React.Component {
     })
   }
 
-  clickHandlerForEditor = () => {
-    
-  }
-
-  clickHandlerForPreviewer = () => {
-
+  clickHandler = () => {
+    this.setState({
+      previewOn: !this.state.previewOn
+    })
   }
 
 
@@ -69,16 +67,16 @@ class App extends React.Component {
 
         {/* Buttons on mobile */}
         <div className="buttons-container d-flex justify-content-center show-on-mobile">
-          <Button className="buttons" onClick={this.clickHandlerForEditor}>Editor</Button>
-          <Button className="buttons" onClick={this.clickHandlerForPreviewer}>Preview</Button>
+          <Button className="buttons" onClick={this.clickHandler}>Editor</Button>
+          <Button className="buttons" onClick={this.clickHandler}>Preview</Button>
         </div>
         {/* ...end... */}
-
+        
         <div className="row">
-          <Editor text={this.state.text} handleChange={this.handleChange} />
-          <Previewer text={this.state.text} />
+          <Editor text={this.state.text} handleChange={this.handleChange} /> 
+          <Previewer text={this.state.text} />  
         </div>
-
+        
         <footer>
           Dev'd by Joblyn 
         </footer>
