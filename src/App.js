@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import Editor from './Components /Editor';
 import Previewer from './Components /Previewer';
 // import $ from "jquery";
@@ -39,46 +39,70 @@ class App extends React.Component {
     super()
     this.state = {
       text: initialState,
-      previewOn: false 
+      isEditorOn: true,
+      EditorActive: true,
+      PreviewerActive: false
     }
     this.handleChange = this.handleChange.bind(this);
-    this.clickHandler = this.clickHandler.bind(this);
+    this.clickHandlerForEditor = this.clickHandlerForEditor.bind(this);
+    this.clickHandlerForPreviewer = this.clickHandlerForPreviewer.bind(this);
   }
 
   handleChange = (e) => {
     this.setState({
-      text: e.target.value
+      text: e.target.value,
     })
   }
 
-  clickHandler = () => {
+  clickHandlerForEditor = () => {
     this.setState({
-      previewOn: !this.state.previewOn
+      isEditorOn: true,
+      EditorActive: true,
+      PreviewerActive: false
     })
   }
 
+  clickHandlerForPreviewer = () => {
+    this.setState({
+      isEditorOn: false,
+      EditorActive: false,
+      PreviewerActive: true
+    })
+  }
+
+  activateButtonForEditor = () => {
+    this.setState({
+    })
+  }
+  activateButtonForPreviewer = () => {
+    this.setState({
+    })
+  }
 
   render() {
+    const { EditorActive, PreviewerActive, text, isEditorOn } = this.state
+
     return (
       <div className="App">
         <header className="App-header">
           Markdown Previewer
         </header>
 
-        {/* Buttons on mobile */}
-        <div className="buttons-container d-flex justify-content-center show-on-mobile">
-          <Button className="buttons" onClick={this.clickHandler}>Editor</Button>
-          <Button className="buttons" onClick={this.clickHandler}>Preview</Button>
+        <div className="buttons-container d-flex justify-content-center">
+          <div className={`buttons ${EditorActive ? 'active' : ''}`} onClick={this.clickHandlerForEditor}>Editor</div>
+          <div className={`buttons ${PreviewerActive ? 'active' : ''}`} onClick={this.clickHandlerForPreviewer}>Preview</div>
         </div>
-        {/* ...end... */}
-        
-        <div className="row">
-          <Editor text={this.state.text} handleChange={this.handleChange} /> 
-          <Previewer text={this.state.text} />  
+
+        <div className="cont-parent">
+          <div className="cont">
+            {isEditorOn ?
+              <Editor text={text} handleChange={this.handleChange} /> :
+              <Previewer text={text} />
+            }
+          </div>
         </div>
-        
         <footer>
-          Dev'd by Joblyn 
+          Dev'd by Joblyn
         </footer>
       </div>
     )

@@ -1,5 +1,5 @@
 .App {
-  background-color: #282c34;
+  background-color: #c5c8ce;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   padding-top: 15px;
   text-align: center;
   font-size: calc(35px + 2vmin);
-  color: white;
+  color: rgb(32, 32, 32);
   font-weight: 600;
 }
 @supports (-webkit-text-stroke: 1px black) {
@@ -22,36 +22,42 @@
     font-size: calc(30px + 2vmin)
   }
 }
+.buttons-container {
+  border-bottom: 1px black solid;
+  margin: 0 5%;  
+}
 .buttons{
-  margin: 10px 10px 0 10px;
-  padding: .5rem 1.6rem !important;
-  font-size: 1rem !important;
+  margin: 10px 5px -1px 0;
+  padding: .3rem 1.5rem !important;
+  font-size: 1.3rem !important;
+  font-weight: 500;
+  color:black;
+  cursor: pointer;
 }
-.show-on-mobile{
-  display: none !important;
-} 
-@media (max-width: 991px){
-  .show-on-mobile{
-    display: block;
-  } 
+.active {
+  border: 1px black solid;
+  border-bottom: none !important;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: none;
+  border-bottom-right-radius: none;
+  background-color: #282c34;
 }
-h4{
-  background-color:#282c34;
-  color:white;
-  border-bottom: 2px solid black;
-  padding: 2px 10px;
-  font-weight: 400;
-}
+
 .my-col{
   border: 2px black solid;
   color: black;
   padding-right: 0!important;
   padding-left: 0!important;
-  height: 600px;   
+  height: 600px;  
+  border-radius: 8px; 
 }
-.row{
+
+.cont{
   margin: 5px 0 !important;
-  padding: 0 2%;
+  padding: 0 5%;
+  max-width: 1000px;
+  position: relative;
 }
 .title{
   height: 5%;
@@ -59,7 +65,7 @@ h4{
   align-items: center;
 }
 #editor{
-  height:93%;
+  height:100%;
   margin-top: 0!important;
 } 
 .scroll{
