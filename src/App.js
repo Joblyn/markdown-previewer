@@ -88,12 +88,12 @@ class App extends React.Component {
           Markdown Previewer
         </header>
 
-        <div className="buttons-container d-flex justify-content-center">
-          <div className={`buttons ${EditorActive ? 'active' : ''}`} onClick={this.clickHandlerForEditor}>Editor</div>
-          <div className={`buttons ${PreviewerActive ? 'active' : ''}`} onClick={this.clickHandlerForPreviewer}>Preview</div>
-        </div>
-
         <div className="cont-parent">
+          <div className="buttons-container d-flex justify-content-center">
+            <div className={`buttons ${EditorActive ? 'active' : ''}`} onClick={this.clickHandlerForEditor}>Editor</div>
+            <div className={`buttons ${PreviewerActive ? 'active' : ''}`} onClick={this.clickHandlerForPreviewer}>Preview</div>
+          </div>
+
           <div className="cont">
             {isEditorOn ?
               <Editor text={text} handleChange={this.handleChange} /> :
