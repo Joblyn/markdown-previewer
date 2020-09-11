@@ -70,15 +70,6 @@ class App extends React.Component {
     })
   }
 
-  activateButtonForEditor = () => {
-    this.setState({
-    })
-  }
-  activateButtonForPreviewer = () => {
-    this.setState({
-    })
-  }
-
   render() {
     const { EditorActive, PreviewerActive, text, isEditorOn } = this.state
 
