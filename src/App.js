@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Button } from 'react-bootstrap';
 import Editor from './Components /Editor';
 import Previewer from './Components /Previewer';
-// import $ from "jquery";
 
 const initialState = `
   This is a paragraph
@@ -71,7 +69,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { EditorActive, PreviewerActive, text, isEditorOn } = this.state
+    const { EditorActive, PreviewerActive, text, isEditorOn } = this.state;
 
     return (
       <div className="App">
