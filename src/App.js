@@ -84,9 +84,9 @@ class App extends React.Component {
           </div>
 
           <div className="cont">
-            {isEditorOn ?
-              <Editor text={text} handleChange={this.handleChange} /> :
-              <Previewer text={text} />
+            {isEditorOn 
+              ? <Editor text={text} handleChange={this.handleChange} /> 
+              : <Previewer text={text} />
             }
           </div>
         </div>
